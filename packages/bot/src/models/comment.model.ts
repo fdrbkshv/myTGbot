@@ -17,6 +17,8 @@ export class CommentModel {
     const seconds = timestamp % 60;
     const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     
+
+    // пиздец как проработать "факты, добавить адаптивную генерацию"
     const facts = [
       `На ${timeStr} в фильме "${movieTitle}" происходит важный поворот сюжета!`,
       `Интересно, что сцена на ${timeStr} снималась в павильоне.`,

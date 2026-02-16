@@ -31,10 +31,12 @@ async function handleMovieSelection(ctx: MyContext, data: string) {
   ctx.session.movieTitle = movieData.title;
   ctx.session.movieYear = movieData.year;
   
-  let movieInfo = `🎬 ${movieData.title}\n📅 ${movieData.year}\n\nГенерирую комментарии...`;
+// проработать текст ${movieData.year}
+
+  let movieInfo = `Фильм ${movieData.title} очень хороший выбор, это один из моих любимых\n`; 
   await ctx.reply(movieInfo);
 
-  const comments = commentService.generateComments(movieData.title, 3);
+  const comments = commentService.generateComments(movieData.title, 1);
   
   for (const comment of comments) {
     const minutes = Math.floor(comment.timestamp / 60);

@@ -7,9 +7,29 @@ if (!token) {
   process.exit(1);
 }
 
-const bot = createBot(token);
+let bot = createBot(token);
 
-// Запуск
-bot.launch().then(() => console.log('✅ Бот запущен!'));
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+// Функция запуска бота
+async function startBot() {
+  try {
+    await bot.launch();
+    console.log('✅ Бот запущен!');
+  } catch (error) {
+    console.error('❌ Ошибка запуска бота:', error);
+    process.exit(1);
+  }
+}
+
+// Запускаем
+startBot();
+
+// Обработка перезапуска
+process.on('SIGINT', async () => {
+  console.log('👋 Бот остановлен (SIGINT)');
+  bot.stop('SIGINT');
+});
+
+process.on('SIGTERM', async () => {
+  console.log('👋 Бот остановлен (SIGTERM)');
+  bot.stop('SIGTERM');
+});
