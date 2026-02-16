@@ -1,0 +1,11 @@
+// tsconfig.json - ВОТ ТУТ ЛИЧНЫЕ ДАННЫЕ - настройки компилятора под ваш проект
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

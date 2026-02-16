@@ -1,0 +1,131 @@
+movie-companion-bot/
+├── .env.example // добавлен
+├── .gitignore
+├── package.json 
+├── tsconfig.json 
+├── README.md
+├── docker-compose.yml
+├── .eslintrc.js
+├── .prettierrc
+│
+├── packages/                          # Монорепозиторий для разных компонентов
+│   ├── bot/                           # Telegram бот (основной компонент)
+│   │   ├── src/
+│   │   │   ├── index.ts               # Точка входа бота // Добавлен файл с ботом
+│   │   │   ├── bot.ts                 # Инициализация бота
+│   │   │   ├── handlers/
+│   │   │   │   ├── start.handler.ts   # /start команда
+│   │   │   │   ├── watch.handler.ts   # /watch команда
+│   │   │   │   ├── movie.handler.ts   # Обработка названий фильмов
+│   │   │   │   ├── callback.handler.ts # Обработка кнопок и реакций
+│   │   │   │   └── manual.handler.ts  # Ручной режим ввода таймкодов
+│   │   │   ├── services/
+│   │   │   │   ├── tmdb.service.ts    # Интеграция с TMDb API
+│   │   │   │   ├── groq.service.ts    # Интеграция с Groq AI
+│   │   │   │   ├── comment.service.ts # Генерация и управление комментариями
+│   │   │   │   └── analytics.service.ts # Сбор статистики и реакций
+│   │   │   ├── models/
+│   │   │   │   ├── movie.model.ts     # Интерфейсы для фильмов
+│   │   │   │   ├── comment.model.ts   # Интерфейсы для комментариев
+│   │   │   │   └── user.model.ts      # Интерфейсы для пользователей
+│   │   │   ├── keyboards/
+│   │   │   │   ├── inline.keyboard.ts # Создание inline-клавиатур
+│   │   │   │   └── reply.keyboard.ts  # Создание reply-клавиатур
+│   │   │   └── utils/
+│   │   │       ├── logger.ts          # Логирование
+│   │   │       └── validators.ts      # Валидация входных данных
+│   │   ├── package.json // добавлен
+│   │   └── tsconfig.json // добавлен
+│   │
+│   ├── web-app/                        # Telegram Mini App
+│   │   ├── public/
+│   │   │   └── index.html
+│   │   ├── src/
+│   │   │   ├── App.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── components/
+│   │   │   │   ├── MovieSearch.tsx
+│   │   │   │   ├── CommentsList.tsx
+│   │   │   │   ├── Reactions.tsx
+│   │   │   │   └── Timeline.tsx       # Визуализация таймкодов
+│   │   │   ├── services/
+│   │   │   │   ├── api.service.ts     # Взаимодействие с бекендом
+│   │   │   │   └── telegram.service.ts # Telegram WebApp API
+│   │   │   └── types/
+│   │   │       └── index.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── extension/                       # Браузерное расширение
+│   │   ├── manifest.json
+│   │   ├── src/
+│   │   │   ├── background/
+│   │   │   │   └── index.ts            # Service worker
+│   │   │   ├── content/
+│   │   │   │   └── index.ts            # Content script для определения фильмов
+│   │   │   ├── popup/
+│   │   │   │   ├── popup.html
+│   │   │   │   └── popup.tsx           # Всплывающее окно
+│   │   │   ├── services/
+│   │   │   │   ├── movie-detector.ts   # Определение фильма на странице
+│   │   │   │   └── bot-connector.ts    # Связь с ботом
+│   │   │   └── utils/
+│   │   │       └── storage.ts          # Локальное хранилище
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   └── shared/                          # Общие модули для всех компонентов
+│       ├── src/
+│       │   ├── types/
+│       │   │   ├── movie.types.ts
+│       │   │   ├── comment.types.ts
+│       │   │   └── user.types.ts
+│       │   ├── constants/
+│       │   │   └── index.ts
+│       │   └── utils/
+│       │       └── helpers.ts
+│       ├── package.json
+│       └── tsconfig.json
+│
+├── server/                               # Бекенд (если потребуется отдельно от бота)
+│   ├── src/
+│   │   ├── index.ts
+│   │   ├── api/
+│   │   │   ├── routes/
+│   │   │   │   ├── movies.routes.ts
+│   │   │   │   ├── comments.routes.ts
+│   │   │   │   └── analytics.routes.ts
+│   │   │   ├── controllers/
+│   │   │   │   ├── movies.controller.ts
+│   │   │   │   ├── comments.controller.ts
+│   │   │   │   └── analytics.controller.ts
+│   │   │   └── middleware/
+│   │   │       ├── auth.middleware.ts
+│   │   │       └── validation.middleware.ts
+│   │   ├── services/
+│   │   │   ├── tmdb.service.ts
+│   │   │   ├── groq.service.ts
+│   │   │   └── database.service.ts
+│   │   └── database/
+│   │       ├── models/
+│   │       │   ├── User.model.ts
+│   │       │   ├── Movie.model.ts
+│   │       │   └── Comment.model.ts
+│   │       └── migrations/
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── database/                             # База данных (SQL/NoSQL)
+│   └── init.sql
+│
+├── infrastructure/                       # Инфраструктурные файлы
+│   ├── nginx/
+│   │   └── nginx.conf
+│   └── scripts/
+│       ├── deploy.sh
+│       └── backup.sh
+│
+└── docs/                                 # Документация
+    ├── api.md
+    ├── architecture.md
+    └── development-plan.md
