@@ -1,5 +1,5 @@
 movie-companion-bot/
-├── .env.example // добавлен
+├── .env.example 
 ├── .gitignore
 ├── package.json 
 ├── tsconfig.json 
@@ -74,7 +74,7 @@ movie-companion-bot/
 │   │   ├── package.json
 │   │   └── tsconfig.json
 │   │
-│   └── shared/                          # Общие модули для всех компонентов
+│   └── shared/                          # Общие модули для всех компонентов //sozdal
 │       ├── src/
 │       │   ├── types/
 │       │   │   ├── movie.types.ts

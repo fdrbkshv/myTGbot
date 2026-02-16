@@ -1,0 +1,9 @@
+{
+  "name": "movie-companion-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:bot": "cd packages/bot && npm run dev",
+    "start:bot": "cd packages/bot && npm start"
+  }
+}
