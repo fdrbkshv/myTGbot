@@ -21,58 +21,67 @@ export async function handleCallbackQuery(ctx: MyContext) {
   await handleWantMovie(ctx, userId, session);
   break;
 
-async function handleWantMovie(ctx: MyContext, userId: number, session: any) {
-  console.log('handleWantMovie, текущий state:', session.state); // Лог
-  
-  session.state = 'awaiting_movie';
-  userService.updateSession(userId, session);
-  
-  console.log('Новый state:', session.state); // Лог
-  
-  await ctx.reply(
-    '🍿 **Отлично! Давай подберем фильм**\n\n' +
-    'Напиши название фильма или жанр, и я найду для тебя интересные варианты.\n\n' +
-    'Например: "Аватар", "комедия", "боевик"',
-    { 
-      parse_mode: 'Markdown',
-      reply_markup: InlineKeyboards.helpKeyboard() 
+    async function handleWantMovie(ctx: MyContext, userId: number, session: any) {
+      console.log('handleWantMovie, текущий state:', session.state); // Лог
+      
+      session.state = 'awaiting_movie';
+      userService.updateSession(userId, session);
+      
+      console.log('Новый state:', session.state); // Лог
+      
+      await ctx.reply(
+        '🍿 **Отлично! Давай подберем фильм**\n\n' +
+        'Напиши название фильма или жанр, и я найду для тебя интересные варианты.\n\n' +
+        'Например: "Аватар", "комедия", "боевик"',
+        { 
+          parse_mode: 'Markdown',
+          reply_markup: InlineKeyboards.helpKeyboard() 
+        }
+      );
     }
-  );
-}
     case 'dont_want':
       await handleDontWant(ctx, userId);
+      console.log('Нажата кнопка - Не хочу');
       break;
       
     case 'remind_later':
       await handleRemindLater(ctx, userId);
+      console.log('Нажата кнопка - Напомни позже');
       break;
       
     case 'start_watching':
       await handleStartWatching(ctx, userId, session);
+      console.log('Нажата кнопка - Начать просмотр');
       break;
       
     case 'different_movie':
       await handleDifferentMovie(ctx, userId, session);
+      console.log('Нажата кнопка - Другой фильм');
       break;
       
     case 'help':
       await handleHelp(ctx);
+      console.log('Нажата кнопка - Помощь');
       break;
       
     case 'about':
       await handleAbout(ctx);
+      console.log('Нажата кнопка - Описание');
       break;
       
     case 'commands':
       await handleCommands(ctx);
+      console.log('Нажата кнопка - Команды');
       break;
       
     case 'back_to_menu':
       await handleBackToMenu(ctx);
+      console.log('Нажата кнопка - Вернуться в меню');
       break;
       
     case 'enter_time':
       await handleEnterTime(ctx, session);
+      console.log('Нажата кнопка - Ввести время');
       break;
       
     default:

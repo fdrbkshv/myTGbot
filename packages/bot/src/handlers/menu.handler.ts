@@ -92,3 +92,9 @@ export async function menuHandler(ctx: MyContext, text: string) {
       return false;
   }
 }
+
+
+
+
+// из этого половина не используется)
+//видимо нихуя отсюда не используется

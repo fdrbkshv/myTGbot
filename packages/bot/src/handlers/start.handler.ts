@@ -26,3 +26,6 @@ export async function startHandler(ctx: MyContext) {
     isAdmin ? ReplyKeyboards.adminMenu() : ReplyKeyboards.mainMenu()
   );
 }
+
+
+// видимо этот хендлер тоже не используется...

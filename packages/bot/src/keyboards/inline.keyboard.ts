@@ -1,4 +1,6 @@
 export class InlineKeyboards {
+  // вот эта клавиатура используется как затычка для кнопки "В главное меню"
+
   static mainMenuKeyboard() {
     return {
       inline_keyboard: [
@@ -9,6 +11,10 @@ export class InlineKeyboards {
         [
           { text: 'ℹ️ О проекте', callback_data: 'about' },
           { text: '📋 Команды', callback_data: 'commands' }
+        ],
+        [
+          { text: 'Оу Моя первая кнопка', callback_data: 'my_First_Button' },
+          { text: 'Оу Моя вторая кнопка', callback_data: 'my_Second_Button' }
         ]
       ]
     };
@@ -24,6 +30,10 @@ export class InlineKeyboards {
         [
           { text: '⏰ Напомнить позже', callback_data: 'remind_later' },
           { text: '❓ Помощь', callback_data: 'help' }
+        ],
+        [
+          { text: '1 Моя первая кнопка1', callback_data: 'my_First_Button' },
+          { text: '2 Моя вторая кнопка2', callback_data: 'my_Second_Button' }
         ]
       ]
     };

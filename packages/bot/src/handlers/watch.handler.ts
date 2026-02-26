@@ -14,7 +14,7 @@ export async function watchHandler(ctx: MyContext) {
   ctx.session.awaitingMovie = true;
   
   await ctx.reply(
-    '🎬 Отправь название фильма:',
+     '🎬 Какой фильм смотрим сегодня?', // проработать сообщение вот тут !!! Но походу это не используется!!!!
     ReplyKeyboards.searchingMenu()
   );
 }

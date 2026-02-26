@@ -53,3 +53,5 @@ export async function handleTextMessage(ctx: MyContext) {
     await ctx.reply('❌ Произошла ошибка. Попробуй еще раз.');
   }
 }
+
+// это вроде используется

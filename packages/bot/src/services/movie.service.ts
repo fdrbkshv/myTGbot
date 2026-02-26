@@ -8,7 +8,7 @@ export class MovieService {
   // Локальная база популярных фильмов (запасной вариант)
   private static readonly FALLBACK_MOVIES: Movie[] = [
     // Основные фильмы
-    { id: '1', title: 'Аватар', year: '2009', description: 'Фантастика Джеймса Кэмерона', source: 'fallback' },
+    { id: '1', title: 'Аватар', year: '2009', description: 'Фантастика Джеймса Кэмерона', source: 'kinopoisk' },
     { id: '2', title: 'Шрек', year: '2001', description: 'Мультфильм про огра', source: 'fallback' },
     { id: '3', title: 'Шрек 2', year: '2004', description: 'Шрек знакомится с родителями Фионы', source: 'fallback' },
     { id: '4', title: 'Шрек Третий', year: '2007', description: 'Шрек ищет наследника', source: 'fallback' },
